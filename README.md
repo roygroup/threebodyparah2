@@ -54,9 +54,9 @@ Usage:
 -----------------------------------------------------------------------------------
 
 TESTED COMPILERS:
-    GNU Fortran, version 9.3.0        # gfortran
-    g++, version 9.3.0                # g++
-
+    GNU Fortran, version 9.3.0
+    g++, version 9.3.0
+    
 PYTHON REQUIREMENTS
     Python 3.6.7 or above
     numpy
