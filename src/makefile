@@ -5,10 +5,10 @@ F90=gfortran
 FFLAGS=-O3
 ffile=f90RKHS
 
-options=-g -std=c++11
+options=-g -std=c++11 
 
 
-LDFLAGS=-lgfortran
+LDFLAGS=-lgfortran 
 
 OBJS= extrapolate.o jpoint.o callRKHS.o RKHS.o region.o trapezoid.o utils.o rkhs.o
 
