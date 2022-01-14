@@ -54,11 +54,11 @@ Usage:
 -----------------------------------------------------------------------------------
 
 TESTED COMPILERS:
-    GNU Fortran (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0        # gfortran
-    g++ (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0                # g++
+    GNU Fortran, version 9.3.0        # gfortran
+    g++, version 9.3.0                # g++
 
 PYTHON REQUIREMENTS
-    Python 3.6.7
+    Python 3.6.7 or above
     numpy
     scipy
 
