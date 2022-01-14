@@ -11,59 +11,72 @@ The 3rd column represents the pair distances between molecules 1 and 3.
 
 -----------------------------------------------------------------------------------
 
-Usage:
-    Part 1: create the PES executable
+## Installation:
 
-        cd src
-        make                                            # creates the `threebodyparah2` executable
-        cd ..
+### Part 1: create the `threebodyparah2` PES executable
+```
+cd src
+make                                            
+cd ..
+```
+### Part 2: create the `threebodypes.kernel` file in `RKHS/kernels`
+```    
+cd RKHS
+make
+python generate_kernel.py                       
+cd ..
+```
+### Part 3: test the executable
+``` 
+cp kernels/threebodypes.kernel test
+cp src/threebodyparah2 test
+cd test
+```
+test using equilateral triangles:
 
-    Part 2: create the .kernel file
-    
-        cd RKHS
-        make
-        python generate_kernel.py                       # creates the threebodypes.kernel file in /kernels
-        cd ..
+`./threebodyparah2 threebodypes.kernel tsl_equilateral.dat`
 
-    Part 3: test the executable
-        
-        cp kernels/threebodypes.kernel test
-        cp src/threebodyparah2 test
-        cd test
-        ./threebodyparah2 threebodypes.kernel tsl_equilateral.dat    # test using equilateral triangles
-        ./threebodyparah2 threebodypes.kernel tsl_random.dat         # test using random triangles
+test using random triangles:
 
-        python plot_examples.py                                      # several examples of curves using the three-body potential
-                                                                     # uncomment lines at the bottom of the script for different plots
-                                                                     # more instructions are inside the `plot_examples.py` file
+`./threebodyparah2 threebodypes.kernel tsl_random.dat`
 
+several examples of curves using the three-body potential:
 
-    Part 4 (OPTIONAL): create the threebodypes.csv file from the AVTZ data
-        > this step assumes
-            > the `threebodyparah2` executable in Part 1 has been created
-            > `make` has already been run in Part 2
-        > descriptions of the adjustments are given at the top of the files:
-            > `make_smodAVTZ_csvfile.py`
-            > `make_RsmodAVTZ_csvfile.py`
-            > `make_threebodypes_csvfile.py`
-        > the resulting `threebodypes.csv` file is saved in the `makecsv` directory, not the `csvfiles` directory
+`python plot_examples.py`                                    
+                                                                    
+uncomment lines at the bottom of the script for different plots
+more instructions are inside the `plot_examples.py` file
 
-        cd makecsv
-        python makecsv.py
+### Part 4 (OPTIONAL): create the threebodypes.csv file from the AVTZ data
+this step assumes:
+- the `threebodyparah2` executable in Part 1 has been created
+- `make` has already been run in Part 2
+
+descriptions of the adjustments are given at the top of the files:
+- `make_smodAVTZ_csvfile.py`
+- `make_RsmodAVTZ_csvfile.py`
+- `make_threebodypes_csvfile.py`
+
+the resulting `threebodypes.csv` file is saved in the `makecsv` directory, not the `csvfiles` directory:
+
+```
+cd makecsv
+python makecsv.py
+```
 
 -----------------------------------------------------------------------------------
 
 TESTED COMPILERS:
-    GNU Fortran, version 9.3.0
-    g++, version 9.3.0
+- GNU Fortran, version 9.3.0
+- g++, version 9.3.0
     
 PYTHON REQUIREMENTS
-    Python 3.6.7 or above
-    numpy
-    scipy
+- Python 3.6.7 or above
+- numpy
+- scipy
 
 -----------------------------------------------------------------------------------
 
 NOTES:
-	(1) The	`threebodypes.kernel` file must be in the same directory as the `threebodyparah2` executable.
-	(2) The program does not check if the triangles inserted are 'impossible', i.e. if you include a "triangle" where one side length is greater than the sum of the other two, a junk value comes out, or a segmentation fault occurs.
+1. The	`threebodypes.kernel` file must be in the same directory as the `threebodyparah2` executable.
+2. The program does not check if the triangles inserted are 'impossible', i.e. if you include a "triangle" where one side length is greater than the sum of the other two, a junk value comes out, or a segmentation fault occurs.
