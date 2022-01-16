@@ -32,7 +32,6 @@ class KernelGeneratorInfo:
 def make_kernel(prefix):
     csvdir    = os.path.join("..", "csvfiles")
     kerneldir = os.path.join("..", "kernels")
-    os.mkdir(kerneldir)
     csvfile   = os.path.join(csvdir, prefix + ".csv")
     
     # first power doesn't actually matter, energies are empirically determined in that direction

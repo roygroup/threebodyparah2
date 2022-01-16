@@ -1,0 +1,5 @@
+# Ignore everything in this directory
+# It exists solely for main/RKHS/generate_kernel.py to put a kernel file into
+*
+# Except this file
+!.gitignore
