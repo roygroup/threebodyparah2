@@ -15,7 +15,7 @@ OBJS= extrapolate.o jpoint.o callRKHS.o RKHS.o region.o trapezoid.o utils.o rkhs
 all: threebodyparah2 clean
 
 threebodyparah2: main.o $(OBJS)
-	$(CC) $(CFLAGS) -o $@ main.o $(OBJS) $(LDLIBS)
+	$(CC) -o $@ main.o $(OBJS) $(LDLIBS)
 
 extrapolate.o:   extrapolate.cpp
 	$(CC) $(options) -c $(CFLAGS) -o $@ $*.cpp
