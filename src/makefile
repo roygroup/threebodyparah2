@@ -5,10 +5,9 @@ F90=gfortran
 FFLAGS=-O3
 ffile=f90RKHS
 
-options=-g -std=c++11 
+options=-std=c++11 
 
-
-LDFLAGS=-lgfortran 
+LDLIBS=-lgfortran 
 
 OBJS= extrapolate.o jpoint.o callRKHS.o RKHS.o region.o trapezoid.o utils.o rkhs.o
 
@@ -16,7 +15,7 @@ OBJS= extrapolate.o jpoint.o callRKHS.o RKHS.o region.o trapezoid.o utils.o rkhs
 all: threebodyparah2 clean
 
 threebodyparah2: main.o $(OBJS)
-	$(CC) -o $@ main.o $(OBJS) $(LDFLAGS)
+	$(CC) -o $@ main.o $(OBJS) $(LDLIBS)
 
 extrapolate.o:   extrapolate.cpp
 	$(CC) $(options) -c $(CFLAGS) -o $@ $*.cpp
